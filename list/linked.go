@@ -51,7 +51,7 @@ type Linked[T any] struct {
 	len  int
 }
 
-func NewLinked[T any]() *Linked[T] {
+func New[T any]() *Linked[T] {
 	l := new(Linked[T])
 	l.len = 0
 	l.root.prev = &l.root
@@ -132,6 +132,7 @@ func (l *Linked[T]) Remove(e *Element[T]) {
 	l.len--
 }
 
+// At returns an element at index ind.
 func (l *Linked[T]) At(ind int) (*Element[T], error) {
 	if ind >= l.len {
 		return nil, fmt.Errorf("index ind=%v out of bounds: [%v, %v]", ind, 0, l.len-1)

@@ -4,7 +4,7 @@ package list
 import "testing"
 
 func TestList(t *testing.T) {
-	l := NewLinked[any]()
+	l := New[any]()
 	checkListPointers(t, l, []*Element[any]{})
 
 	// Single element list
@@ -69,7 +69,7 @@ func TestList(t *testing.T) {
 }
 
 func TestRemove(t *testing.T) {
-	l := NewLinked[any]()
+	l := New[any]()
 	e1 := l.InsertBack(1)
 	e2 := l.InsertBack(2)
 	checkListPointers(t, l, []*Element[any]{e1, e2})
@@ -81,11 +81,11 @@ func TestRemove(t *testing.T) {
 }
 
 func TestInsertElementFromDifferentList(t *testing.T) {
-	l1 := NewLinked[any]()
+	l1 := New[any]()
 	l1.InsertBack(1)
 	l1.InsertBack(2)
 
-	l2 := NewLinked[any]()
+	l2 := New[any]()
 	l2.InsertBack(3)
 	l2.InsertBack(4)
 
@@ -102,7 +102,7 @@ func TestInsertElementFromDifferentList(t *testing.T) {
 }
 
 func TestRemovedElementIsUnlinked(t *testing.T) {
-	l := NewLinked[any]()
+	l := New[any]()
 	l.InsertBack(1)
 	l.InsertBack(2)
 
@@ -121,7 +121,7 @@ func TestRemovedElementIsUnlinked(t *testing.T) {
 
 // Test that a list l is not modified when calling InsertBefore with a mark that is not an element of l.
 func TestInsertBeforeUnknownMark(t *testing.T) {
-	l := NewLinked[any]()
+	l := New[any]()
 	l.InsertBack(1)
 	l.InsertBack(2)
 	l.InsertBack(3)
@@ -131,7 +131,7 @@ func TestInsertBeforeUnknownMark(t *testing.T) {
 
 // Test that a list l is not modified when calling InsertAfter with a mark that is not an element of l.
 func TestInsertAfterUnknownMark(t *testing.T) {
-	l := NewLinked[any]()
+	l := New[any]()
 	l.InsertBack(1)
 	l.InsertBack(2)
 	l.InsertBack(3)
