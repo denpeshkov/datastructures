@@ -1,7 +1,9 @@
 // Based on https://cs.opensource.google/go/go/+/refs/tags/go1.21.0:src/container/list/list_test.go
-package list
+package linked
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestList(t *testing.T) {
 	l := New[any]()

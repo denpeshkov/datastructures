@@ -1,4 +1,4 @@
-// Package slice contains implementation of a stack backed by a slice.
+// Package slice contains an implementation of a stack backed by a slice.
 package slice
 
 // Stack represents a stack.

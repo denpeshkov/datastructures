@@ -1,2 +1,2 @@
-// Package list contains implementations of a list ADT.
+// Package list contains implementations of the list data structure.
 package list

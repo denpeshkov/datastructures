@@ -1,4 +1,5 @@
-package list
+// Package linked contains an implementation of a doubly-linked circular list.
+package linked
 
 import (
 	"fmt"
@@ -51,6 +52,7 @@ type Linked[T any] struct {
 	len  int
 }
 
+// New returns an initialized list.
 func New[T any]() *Linked[T] {
 	l := new(Linked[T])
 	l.len = 0
@@ -99,7 +101,7 @@ func (l *Linked[T]) InsertBack(v T) *Element[T] {
 }
 
 // InsertBefore inserts a new element with value v immediately before p and returns e.
-// If p is not an element of list l nil is returned.
+// If p is not an element of the list l, nil is returned.
 func (l *Linked[T]) InsertBefore(v T, p *Element[T]) *Element[T] {
 	if p.l != l {
 		return nil
@@ -108,7 +110,7 @@ func (l *Linked[T]) InsertBefore(v T, p *Element[T]) *Element[T] {
 }
 
 // InsertAfter inserts a new element with value v immediately after p and returns e.
-// If p is not an element of list l nil is returned.
+// If p is not an element of the list l, nil is returned.
 func (l *Linked[T]) InsertAfter(v T, p *Element[T]) *Element[T] {
 	if p.l != l {
 		return nil
@@ -145,7 +147,7 @@ func (l *Linked[T]) At(ind int) (*Element[T], error) {
 	return e, nil
 }
 
-// Len returns the number of elements of the list.
+// Len returns the number of elements in the list.
 func (l *Linked[T]) Len() int {
 	return l.len
 }
@@ -155,13 +157,13 @@ func (l *Linked[T]) Empty() bool {
 	return l.len == 0
 }
 
-// Iter returns an iterator at the first element.
+// Iter returns an iterator pointing at the first element.
 func (l *Linked[T]) Iter() Iterator[T] {
 	return Iterator[T]{l.root.next}
 }
 
-// Find returns the first element with value v, or nil if not present.
-// Second parameter is true if element is found, otherwise false.
+// Find returns the first element with the value v, or nil if not present.
+// The second parameter is true if the element is found; otherwise, it is false.
 func Find[T comparable](l *Linked[T], v T) (*Element[T], bool) {
 	for e, i := l.root.next, 0; i < l.len; e, i = e.next, i+1 {
 		if e.Value == v {

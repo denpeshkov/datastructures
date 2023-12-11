@@ -1,16 +1,16 @@
-// Package linked contains implementation of a stack backed by linked list.
+// Package linked contains an implementation of a stack backed by a linked list.
 package linked
 
-import "github.com/denpeshkov/datastructures/list"
+import "github.com/denpeshkov/datastructures/list/linked"
 
 // Stack represents a stack.
 type Stack[T any] struct {
-	l *list.Linked[T]
+	l *linked.Linked[T]
 }
 
 // New returns an initialized stack.
 func New[T any]() *Stack[T] {
-	return &Stack[T]{list.New[T]()}
+	return &Stack[T]{linked.New[T]()}
 }
 
 // Len returns the number of elements in the stack.
